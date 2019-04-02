@@ -1,0 +1,17 @@
+{
+  "name": "cargame",
+  "version": "1.0.0",
+  "description": "Game of cars",
+  "main": "index.js",
+  "repository": "https://github.com/MauriceOkumu/gameofcars.git",
+  "author": "mauriceokumu <maurice.okumu@thoughtworks.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode developement"
+  },
+  "dependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
