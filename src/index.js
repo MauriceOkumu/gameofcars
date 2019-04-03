@@ -1,11 +1,6 @@
-import React,{ Component } from "react";
-import ReactDOM from "react-dom";
+import { render }from "react-dom";
+import Allroutes from "./routes/routes"
 
-class Welcome extends React.Component{
-    render() {
-         return (
-         <h1>The home of racing cars</h1>
-         );
-    }
-}
-ReactDOM.render(<Welcome />, document.getElementById("app"));
+render((
+   Allroutes
+), document.getElementById("app"));

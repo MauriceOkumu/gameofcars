@@ -29,6 +29,17 @@ module.exports = {
                         options: { minimize: true}
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        optins: { minimize : true}
+                    }
+                    
+                ]
             }
         ]
     },
