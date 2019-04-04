@@ -6,6 +6,7 @@ body {
 
 .active {
     color: red;
+    text-decoration: none;
 }
 nav {
     text-align: center;
