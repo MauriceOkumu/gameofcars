@@ -8,7 +8,6 @@ class ChangeName extends Component {
         return (
             <div>
                 <div onClick={() => {
-                    console.log("Clicked")
                     return this.props.changeName()}}>Change the name</div>
                 <p>{ this.props.name}</p>
             </div>
