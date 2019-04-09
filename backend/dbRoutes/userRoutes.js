@@ -28,13 +28,11 @@ Routes.route('/add').post((req, res) => {
     User.findOne({
         email: req.body.email
     })
-    .then(uuser => {
-        if(uuser) {
+    .then(user => {
+        if(user) {
             return res.status(400).json({email: 'Email already exists'});
         } else {
-            console.log('********************* ', req.body)
           const user = new User(req.body)
-          console.log('UUSSER => ', user)
           bcrypt.genSalt(10, (err, salt) => {
               if(err) {
                   console.error('There was an error ', err)
@@ -49,7 +47,6 @@ Routes.route('/add').post((req, res) => {
                         res.status(200).json({'user': 'user added successfully'})
                         })
                         .catch(err => {
-                            console.log(err)
                          res.status(400).send('failed to add the user to the database');
                       })
                     }
@@ -60,6 +57,61 @@ Routes.route('/add').post((req, res) => {
     })
 
         
-  })
+  });
+
+  Routes.route('/login').post((req, res) => {
+      const { errors, isValid } = validateLoginInputs(req.body);
+
+      if(!isValid) {
+          return res.status(400).json(errors);
+      }
+      const email = req.body.email;
+      const password = req.body.password;
+
+      User.findOne({
+        email
+    })
+    .then(user => {
+        if(!user) {
+            errors.email = 'User email not found';
+            return res.status(404).json(errors);
+        } else {
+         bcrypt.compare(password, user.password)
+         .then(isMatch => {
+             if(isMatch) {
+                 const payload = {
+                     id: user.id,
+                     name: user.name
+
+                 }
+                 jwt.sign(payload, 'secret', {
+                     expiresIn: 3600
+                 },(err, token) => {
+                     if(err) {
+                         console.error('There was an error in the token =>',err)
+                     } else {
+                       res.json({
+                           success: true,
+                           token: `Bearer ${token}`
+                       })
+                     }
+                 })
+             } else {
+                 errors.password = 'Incorrect password';
+                 return res.status(400).json(errors);
+             }
+         })
+        }
+    })
+
+ })
+
+ Routes.route('/myself',).get(passport.authenticate('jwt',{session: false}), (req, res) => {
+     return res.json({
+         id: req.user.id,
+         name: req.user.name,
+         email: req.user.email
+     })
+ })
 
   module.exports = Routes;
