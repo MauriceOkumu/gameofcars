@@ -1,5 +1,6 @@
 import React,{ Component } from "react";
 import ChangeName from "./nameChange";
+import Register from'./register';
 
 class Welcome extends Component{
     constructor() {
@@ -14,8 +15,9 @@ class Welcome extends Component{
          return (
          
             <div>
-              <h1>Welcome {user} Please login to start the game</h1>
+              <h1>Welcome {user} Please login or register to start the game</h1>
               <ChangeName name={this.state.name}/>
+              <Register />
             </div>
             
          );

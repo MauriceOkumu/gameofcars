@@ -23,4 +23,3 @@ module.exports = validateRegisterInputs = (data) => {
   }
 }
 
-//module.exports = validateRegisterInputs;

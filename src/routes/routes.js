@@ -11,18 +11,21 @@ import "./routes.css";
 const Allroutes = (
     <Provider store={ store }>
       <BrowserRouter>
-        <nav>
-          <ul>
-            <li>
-              <NavLink exact activeClassName="active" to="/">Welcome</NavLink>
-           </li>
-           <li>
-             <NavLink activeClassName="active" to="/login">Login</NavLink>
-           </li>
-           <li>
-             <NavLink activeClassName="active" to="/game">Game</NavLink>
-           </li>
-         </ul>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="collapse navbar-collapse">
+          <ul className="navbar-nav ml-auto">
+             <li className="nav-item">
+               <NavLink exact activeClassName="active" to="/">Welcome</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink activeClassName="active" to="/login">Login</NavLink>
+            </li>
+            <li  className="nav-item">
+              <NavLink activeClassName="active" to="/game">Game</NavLink>
+            </li>
+          </ul>
+        </div>
+          
       </nav>
       <Switch>
         <Route exact path="/" component={Welcome} />

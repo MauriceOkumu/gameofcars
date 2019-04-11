@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-class Login extends Component {
+class Register extends Component {
     constructor () {
         super();
         this.state = {
+            name: '',
             email: '',
             password: '',
             errors: {}
@@ -20,8 +21,9 @@ class Login extends Component {
     
     handleSubmit(e) {
         e.preventDefault();
-        const { email, password} = this.state;
+        const { name, email, password} = this.state;
         const user = {
+            name,
             email,
             password
         }
@@ -33,6 +35,10 @@ class Login extends Component {
             <div>
                 <form onSubmit={ this.handleSubmit }>
                     <div className="form-group">
+                        <input type="text" placeholder="name" onChange ={this.handleInputChange }
+                         value={ this.state.name } name="name" className="form-control"/>
+                    </div>
+                    <div className="form-group">
                         <input type="email" placeholder="email" onChange ={this.handleInputChange }
                          value={ this.state.email } name="email" className="form-control"/>
                     </div>
@@ -41,7 +47,7 @@ class Login extends Component {
                          value={ this.state.password} name="password" className="form-control"/>
                     </div>
                     <div className="form-group">
-                        <button type="submit" className="btn btn-primary">Login</button>
+                        <button type="submit" className="btn btn-primary">Register</button>
                     </div>    
                 </form>
             </div>
@@ -49,4 +55,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Register;
