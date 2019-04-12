@@ -8,13 +8,13 @@ module.exports = validateRegisterInputs = (data) => {
   data.password = !isEmpty(data.password) ? data.password : '';
 
   if(Validator.isEmpty(data.name)) {
-      errors.name = 'Name is required';
+      errors.name = 'Name is required !';
   }
   if(Validator.isEmpty(data.email)) {
-    errors.email = 'Email is required';
+    errors.email = 'Email is required !';
   }
   if(Validator.isEmpty(data.password)) {
-    errors.password = 'Password is required';
+    errors.password = 'Password is required !';
   }
 
   return {

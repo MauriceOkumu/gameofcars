@@ -6,6 +6,7 @@ import store from "../reduxStore/store"
 import Welcome from "../components/app";
 import Login from "../components/login";
 import Game from "../components/game";
+import Register from '../components/register';
 import "./routes.css";
 
 const Allroutes = (
@@ -20,6 +21,9 @@ const Allroutes = (
             <li className="nav-item">
               <NavLink activeClassName="active" to="/login">Login</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink activeClassName="active" to="/add">Register</NavLink>
+            </li>
             <li  className="nav-item">
               <NavLink activeClassName="active" to="/game">Game</NavLink>
             </li>
@@ -29,6 +33,7 @@ const Allroutes = (
       </nav>
       <Switch>
         <Route exact path="/" component={Welcome} />
+        <Route path="/add" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/game" component={Game} />
       </Switch>

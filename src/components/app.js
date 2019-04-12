@@ -1,23 +1,40 @@
+"use strict";
 import React,{ Component } from "react";
 import ChangeName from "./nameChange";
-import Register from'./register';
+import axios from 'axios';
 
 class Welcome extends Component{
     constructor() {
         super();
         this.state = {
             user: "Initial User",
-            signed: false
+            name:"maurie",
+           data: []
         }
     }
+    componentDidMount() {
+        this.callBackendApi()
+       
+    }
+    callBackendApi  () {
+        axios.get('http://localhost:5000/users/')
+        .then(data => {
+            console.log("Data=====",data.data[0])
+            this.setState({data: data.data})
+           })
+    }
     render() {
-        const { user} = this.state;
+        const { user, data} = this.state;
+        const  users = data.map((user, key) => <li key={key}>{user.name}</li>)
          return (
          
             <div>
               <h1>Welcome {user} Please login or register to start the game</h1>
               <ChangeName name={this.state.name}/>
-              <Register />
+              <p>{this.state.name}</p>
+              <ul>
+                  { users }
+              </ul>
             </div>
             
          );

@@ -30,7 +30,7 @@ mongoose.connect(dbConfig.DB,{
 const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res)=> {
-    res.send(`Hello server`);
+    res.send({message:"Connected"});
 })
 
 app.use('/users', Routes);

@@ -30,7 +30,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <form onSubmit={ this.handleSubmit }>
                     <div className="form-group">
                         <input type="email" placeholder="email" onChange ={this.handleInputChange }
