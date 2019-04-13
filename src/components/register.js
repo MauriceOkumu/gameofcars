@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { registerUser } from '../actions/authentication';
 import classnames from 'classnames';
@@ -34,7 +33,6 @@ class Register extends Component {
             email,
             password
         }
-        console.log(this.state);
         this.props.registerUser(user, this.props.history);
     }
     componentWillReceiveProps(nextProps) {

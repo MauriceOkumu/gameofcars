@@ -16,7 +16,7 @@ const Allroutes = (
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ml-auto">
              <li className="nav-item">
-               <NavLink exact activeClassName="active" to="/">Welcome</NavLink>
+               <NavLink exact activeClassName="active" to="/">Home</NavLink>
             </li>
             <li className="nav-item">
               <NavLink activeClassName="active" to="/login">Login</NavLink>
@@ -33,9 +33,9 @@ const Allroutes = (
       </nav>
       <Switch>
         <Route exact path="/" component={Welcome} />
-        <Route path="/add" component={Register} />
-        <Route path="/login" component={Login} />
-        <Route path="/game" component={Game} />
+        <Route exact path="/add" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/game" component={Game} />
       </Switch>
     </BrowserRouter>
   </Provider>

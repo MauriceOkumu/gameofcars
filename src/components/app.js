@@ -19,7 +19,6 @@ class Welcome extends Component{
     callBackendApi  () {
         axios.get('http://localhost:5000/users/')
         .then(data => {
-            console.log("Data=====",data.data[0])
             this.setState({data: data.data})
            })
     }
