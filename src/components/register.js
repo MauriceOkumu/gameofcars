@@ -45,11 +45,11 @@ class Register extends Component {
             })
         }
     }
-    // componentDidMount() {
-    //     if(this.props) {
-    //         this.props.history.push('/')
-    //     }
-    // }
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/')
+        }
+    }
 
     render() {
         const { errors } = this.state; 
@@ -97,7 +97,8 @@ Register.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  errors: state.errors
+  errors: state.errors,
+  auth: state.auth
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({registerUser}, dispatch);

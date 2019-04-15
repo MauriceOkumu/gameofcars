@@ -9,7 +9,7 @@ import Login from '../components/login';
 import Game from '../components/game';
 import Register from '../components/register';
 import { logoutUser } from '../actions/authentication'
-import "./routes.css";
+import "../css/routes.css";
 
 
 
@@ -19,7 +19,6 @@ class Allroutes extends Component {
   }
   render() {
     const { isAuthenticated, user } = this.props.auth;
-    console.log('USER============',user)
     const authLinks = (
       <div>
         <ul className="navbar-nav ml-auto">

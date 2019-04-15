@@ -1,0 +1,15 @@
+
+div{
+    color: purple
+}
+p {
+    color: green
+}
+.info{
+    display: flex;
+    justify-content: center
+}
+.game{
+    display: flex;
+    justify-content: center;
+}

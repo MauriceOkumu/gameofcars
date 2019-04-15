@@ -1,0 +1,1 @@
+//Use krita or pixelapp or sketch.io for creating sprites
