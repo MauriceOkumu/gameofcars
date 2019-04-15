@@ -1,14 +1,13 @@
 "use strict";
 import React,{ Component } from "react";
-import ChangeName from "./nameChange";
 import axios from 'axios';
+import { connect } from 'react-redux';
+//import '../css/app.css';
 
 class Welcome extends Component{
     constructor() {
         super();
         this.state = {
-            user: "Initial User",
-            name:"maurie",
            data: []
         }
     }
@@ -23,14 +22,15 @@ class Welcome extends Component{
            })
     }
     render() {
-        const { user, data} = this.state;
+        const { data} = this.state;
+        const{user} = this.props.auth;
         const  users = data.map((user, key) => <li key={key}>{user.name}</li>)
          return (
          
             <div>
-              <h1>Welcome {user} Please login or register to start the game</h1>
-              <ChangeName name={this.state.name}/>
-              <p>{this.state.name}</p>
+                {!user.name && <h1>Welcome Guest Please login or register to start the game</h1>}
+              {user.name && <h1>Welcome  {user.name} enjoy the game</h1>}
+              <h1>All registered users</h1>
               <ul>
                   { users }
               </ul>
@@ -40,4 +40,8 @@ class Welcome extends Component{
     }
 }
 
-export default Welcome;
+const mapStateToProps = state => ({
+    auth: state.auth,
+})
+
+export default connect(mapStateToProps)(Welcome)

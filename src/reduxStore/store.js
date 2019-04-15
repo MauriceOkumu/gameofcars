@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 const initialState = {};
 const store = createStore(
     combineReducers({
-        rootReducer,
+        name:rootReducer.name,
         auth: authReducer,
         errors:  errorReducer
        

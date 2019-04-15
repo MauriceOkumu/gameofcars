@@ -1,5 +1,12 @@
 const path = require('path')
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const  ImageminPlugin = require('imagemin-webpack-plugin').default;
+
+const imageminGifsicle = require("imagemin-gifsicle");
+const imageminJpegtran = require("imagemin-jpegtran");
+const imageminOptipng = require("imagemin-optipng");
+const imageminSvgo = require("imagemin-svgo");
+
 module.exports = {
       //entry: './src/index.js',
     output: {
@@ -41,6 +48,13 @@ module.exports = {
                     }
                     
                 ]
+            },
+            {
+                test: /\.(jpeg|png|gif|svg)$i/,
+                use: [ 
+                    {loader: 'file-loader'}
+                   
+                   ]
             }
         ]
     },
@@ -50,6 +64,28 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: './src/index.html',
             filename: './index.html'
+        }),
+        new ImageminPlugin({
+            bail: false,
+            cache: true,
+            imageminOptions: {
+                // Lossless optimization with custom option
+                // Feel free to experement with options for better result for you
+                plugins: [
+                  imageminGifsicle({
+                    interlaced: true
+                  }),
+                  imageminJpegtran({
+                    progressive: true
+                  }),
+                  imageminOptipng({
+                    optimizationLevel: 5
+                  }),
+                  imageminSvgo({
+                    removeViewBox: true
+                  })
+                ]
+              }
         })
     ]
 };

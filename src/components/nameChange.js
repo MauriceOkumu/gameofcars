@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import  { changeName } from "../actions/changeName";
 
 class ChangeName extends Component {
+   
     render() {
         return (
             <div>
@@ -17,7 +18,7 @@ class ChangeName extends Component {
 
 const mapStateToProps = state => {
     return {
-      name: state.name
+      auth: state.auth
     }
 }
 
