@@ -6,6 +6,7 @@ const imageminGifsicle = require("imagemin-gifsicle");
 const imageminJpegtran = require("imagemin-jpegtran");
 const imageminOptipng = require("imagemin-optipng");
 const imageminSvgo = require("imagemin-svgo");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
       //entry: './src/index.js',
@@ -87,6 +88,7 @@ module.exports = {
                   })
                 ]
               }
-        })
+        }),
+        new BundleAnalyzerPlugin()
     ]
 };
