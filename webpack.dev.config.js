@@ -1,4 +1,3 @@
-const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const  ImageminPlugin = require('imagemin-webpack-plugin').default;
 
@@ -51,7 +50,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpeg|png|gif|svg)$i/,
+                test: /\.(jpe?g|png|gif|svg)$/i,
                 use: [ 
                     {loader: 'url-loader?limit=8192'},
                     {loader: 'file-loader'}
@@ -71,8 +70,6 @@ module.exports = {
             bail: false,
             cache: true,
             imageminOptions: {
-                // Lossless optimization with custom option
-                // Feel free to experement with options for better result for you
                 plugins: [
                   imageminGifsicle({
                     interlaced: true

@@ -1,1 +1,1 @@
-module.exports = require('./Drawing.png')
+export { default } from './Drawing.png';
