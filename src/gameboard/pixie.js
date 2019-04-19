@@ -1,19 +1,36 @@
-// import { Stage, Sprite } from '@inlet/react-pixi';
+import { Stage, Sprite, AppConsumer, Container , Text} from '@inlet/react-pixi';
+import * as PIXI from 'pixi.js';
 import React, {Component } from 'react';
-//import Rectangle from './gameComponents/rectangle';
-//import car from './sprites';
-// import { stage } from './gameComponents/rectangle';
-import GameCanvas from './gameComponents/gameCanvas'
-// document.getElementById("game").appendChild(renderer.view)
+import { connect } from 'react-redux';
+//import * as car from './sprites';
+import { style } from './gameComponents/textStyles'
+import RotatingBunny from './gameComponents/bunny';
 
-// console.log('Car.............', car)
-const PixiApp = () => {
-   return (
-  <div >
-       <GameCanvas />
-  </div>
-    
-   ) 
+PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+
+
+class PixiApp extends Component {
+  render () {
+    const { user } = this.props.auth;
+    const text = `Welcome ${user.name}`
+    const WelcomeText = () => <Text  text={text} style={style} />
+    const ScoreText = () => <Text text="High Scores : (placeholder) 0" x={580} style={style}/>
+  
+    return (
+    <Stage width={1000} height={500} options={{ backgroundColor:  0x1099bb }}>
+    <Container x={150} y={150}>
+      <AppConsumer>
+        {app => <RotatingBunny app={app}/>}
+      </AppConsumer>
+    </Container>
+    <WelcomeText />
+    <ScoreText />
+  </Stage>
+    )
+ }
 }
 
-export default PixiApp;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+export default connect(mapStateToProps)(PixiApp);
