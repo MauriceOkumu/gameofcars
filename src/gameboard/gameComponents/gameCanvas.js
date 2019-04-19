@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import React, {Component } from 'react';
+import { connect } from 'react-redux';
 
 const renderer = PIXI.autoDetectRenderer(800, 600, {
     backgroundColor: 0x1099bb
@@ -20,8 +21,6 @@ const style = {
     wordWrapWidth : 440
 };
 
-const basicText = new PIXI.Text('Car game for all people\'s enjoyment', style);
-stage.addChild(basicText);
 
 const animate = () => {
     requestAnimationFrame(animate)
@@ -30,11 +29,18 @@ const animate = () => {
 
 
 class GameCanvas extends Component {
+   
     componentDidMount() {
         document.body.appendChild(renderer.view)
     }
     render() {
-        console.log(this)
+        const { user } = this.props.auth;
+
+        const basicText = new PIXI.Text(`Car game for ${user.name}'s enjoyment`, style);
+        const scoresText = new PIXI.Text('High Scores : 0', style);
+        scoresText.x = 600;
+        stage.addChild(basicText);
+        stage.addChild(scoresText);
         return (
             <div >
               {animate() }
@@ -42,4 +48,8 @@ class GameCanvas extends Component {
         )
     }
 }
-export default GameCanvas;
+
+const mapStateToProps = state => ({
+    auth: state.auth
+})
+export default connect(mapStateToProps)(GameCanvas);

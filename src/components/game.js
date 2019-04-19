@@ -15,7 +15,6 @@ class Game extends Component {
                     <h1>
                     Game Canvas
                 </h1>
-                <p>{user.name}'s High Score : 0</p>
                 </div>
                 <PixiApp />
             </div>
