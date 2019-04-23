@@ -1,6 +1,8 @@
 import {Sprite } from '@inlet/react-pixi';
 import React, {Component } from 'react';
-const img = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/IaUrttj.png'
+const img = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/IaUrttj.png';
+// const img = require('../sprites').default;
+console.log('img---------',img)
 
   class RotatingBunny extends Component {
      constructor() {

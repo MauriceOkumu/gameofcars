@@ -1,10 +1,4 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const  ImageminPlugin = require('imagemin-webpack-plugin').default;
-
-const imageminGifsicle = require("imagemin-gifsicle");
-const imageminJpegtran = require("imagemin-jpegtran");
-const imageminOptipng = require("imagemin-optipng");
-const imageminSvgo = require("imagemin-svgo");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -53,7 +47,11 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 use: [ 
                     {loader: 'url-loader?limit=8192'},
-                    {loader: 'file-loader'}
+                    {loader: 'file-loader',
+                options:{
+                    name: '[hash].[ext]',
+                    outputPath: 'dist/'
+                }}
                    
                    ]
             }
@@ -65,26 +63,6 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: './src/index.html',
             filename: './index.html'
-        }),
-        new ImageminPlugin({
-            bail: false,
-            cache: true,
-            imageminOptions: {
-                plugins: [
-                  imageminGifsicle({
-                    interlaced: true
-                  }),
-                  imageminJpegtran({
-                    progressive: true
-                  }),
-                  imageminOptipng({
-                    optimizationLevel: 5
-                  }),
-                  imageminSvgo({
-                    removeViewBox: true
-                  })
-                ]
-              }
         }),
         new BundleAnalyzerPlugin()
     ]

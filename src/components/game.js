@@ -14,7 +14,7 @@ class Game extends Component {
                 <div id="info">
                     <h1>
                     Game Canvas
-                </h1>
+                    </h1>
                 </div>
                 <PixiApp />
             </div>
