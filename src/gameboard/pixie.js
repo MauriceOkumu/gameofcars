@@ -7,6 +7,7 @@ import { style } from './gameComponents/textStyles'
 import RotatingBunny from './gameComponents/bunny';
 import Sun from './gameComponents/sun';
 import Road from './gameComponents/road';
+import Clouds from './gameComponents/clouds';
 
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
@@ -19,15 +20,21 @@ class PixiApp extends Component {
     const ScoreText = () => <Text text="High Scores : (placeholder) 0" x={580} style={style}/>
   
     return (
-    <Stage width={1000} height={500} options={{ backgroundColor:  0x000000 , antialias: true}}>
+    <Stage width={1000} height={500} options={
+      { backgroundColor:  0x000000 , antialias: true, interactive: true}
+      }>
     <Container x={150} y={150}>
-      {/* <AppConsumer>
+      <AppConsumer>
         {app => <RotatingBunny app={app}/>}
+      </AppConsumer>
+      {/* <AppConsumer>
+        {app => <Road app={app}/>}
       </AppConsumer> */}
     </Container>
     <WelcomeText />
     <ScoreText />
     <Sun />
+    <Clouds />
     <Road />
   </Stage>
     )

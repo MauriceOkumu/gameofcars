@@ -85,7 +85,7 @@ Routes.route('/add').post((req, res) => {
 
                  }
                  jwt.sign(payload, 'secret', {
-                     expiresIn: 3600
+                     expiresIn: '2h'
                  },(err, token) => {
                      if(err) {
                          console.error('There was an error in the token =>',err)

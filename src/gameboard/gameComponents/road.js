@@ -2,6 +2,25 @@ import React, { Component } from 'react';
 import { Graphics } from '@inlet/react-pixi';
 
 class Road extends Component {
+    constructor() {
+        super();
+        // this.state = {
+        //     rotation: 0
+        // }
+        // this.tick = this.tick.bind(this)
+    }
+    // componentDidMount() {
+    //     this.props.app.ticker.add(this.tick)
+    //   }
+  
+    //   componentWillUnmount() {
+    //     this.props.app.ticker.remove(this.tick)
+    //   }
+    // tick (delta) {
+    //     this.setState(state => ({
+    //         rotation: state.rotation + 0.1 * delta
+    //     }))
+    // }
     render() {
         return (
             <Graphics
@@ -18,7 +37,9 @@ class Road extends Component {
             }
             g.endFill()
             }
-        } />
+        }  
+        // rotation = { this.state.rotation}
+        />
         )
     }
 }
