@@ -13,27 +13,38 @@ PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
 
 class PixiApp extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posX: -10,
+      posY: 340
+    }
+  }
   render () {
     const { user } = this.props.auth;
     const welcomeText = `Welcome  ${user.name}`
     const WelcomeText = () => <Text  text={welcomeText} style={style} />
     const ScoreText = () => <Text text="High Scores : (placeholder) 0" x={580} style={style}/>
+    const{ posX, posY } = this.state;
   
     return (
     <Stage width={1000} height={500} options={
       { backgroundColor:  0x1099bb , antialias: false, interactive: true}
       }>
-    <Container x={150} y={150}>
+    <Container x={0} y={0}>
       {/* <AppConsumer>
         {app => <RotatingBunny app={app}/>}
       </AppConsumer> */}
       {/* <AppConsumer>
         {app => <Road app={app}/>}
       </AppConsumer> */}
+      <AppConsumer>
+        {app => <Sun app={app} />}
+      </AppConsumer>
     </Container>
     <WelcomeText />
     <ScoreText />
-    <Sun />
+    {/* <Sun /> */}
     <Clouds />
     <Road />
   </Stage>

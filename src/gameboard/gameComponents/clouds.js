@@ -13,7 +13,7 @@ class Clouds  extends Component {
         }
         this.animate = this.animate.bind(this);
     }
-    
+
     componentDidMount() {
          ticker.add(this.animate)
     }
@@ -21,7 +21,7 @@ class Clouds  extends Component {
     animate() {
      if(this.state.x < 1200) {
         this.setState({
-            x: this.state.x + .5
+            x: this.state.x + 1
            })
        } else {
          this.setState({x: 0})
