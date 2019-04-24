@@ -21,12 +21,12 @@ class PixiApp extends Component {
   
     return (
     <Stage width={1000} height={500} options={
-      { backgroundColor:  0x000000 , antialias: true, interactive: true}
+      { backgroundColor:  0x1099bb , antialias: false, interactive: true}
       }>
     <Container x={150} y={150}>
-      <AppConsumer>
+      {/* <AppConsumer>
         {app => <RotatingBunny app={app}/>}
-      </AppConsumer>
+      </AppConsumer> */}
       {/* <AppConsumer>
         {app => <Road app={app}/>}
       </AppConsumer> */}

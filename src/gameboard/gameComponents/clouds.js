@@ -1,25 +1,51 @@
 import React, { Component} from 'react';
 import { Graphics } from '@inlet/react-pixi';
 
-class Sun  extends Component {
+const ticker = new PIXI.ticker.Ticker();
+ ticker.stop();
+ticker.start();
+
+class Clouds  extends Component {
+    constructor() {
+        super();
+        this.state = {
+            x : 0,
+        }
+        this.animate = this.animate.bind(this);
+    }
+    
+    componentDidMount() {
+         ticker.add(this.animate)
+    }
+
+    animate() {
+     if(this.state.x < 1200) {
+        this.setState({
+            x: this.state.x + .5
+           })
+       } else {
+         this.setState({x: 0})
+      }
+    }
+
     render() {
         return (
            
                 <Graphics
                 draw={ g => {
                     g.lineStyle(0)
-                    g.beginFill(0xffffff, 0.5)
-                    g.drawCircle(195, 60, 30)
-                    g.drawCircle(250, 60, 40)
-                    g.drawEllipse(250, 100, 90, 50)
+                    g.beginFill(0xffffff)
+                    g.drawCircle( -50, 80, 30)
+                    g.drawCircle(  0, 80, 40)
+                    g.drawEllipse( 0, 120, 90, 50)
                     g.endFill()
                 }
             }
-                />
+               position={{x: this.state.x }}/>
          
             
         )
     }
 }
 
-export default Sun;
+export default Clouds;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Graphics } from '@inlet/react-pixi';
 
+
 class Road extends Component {
     constructor() {
         super();
@@ -26,7 +27,7 @@ class Road extends Component {
             <Graphics
             draw={g => {
             g.lineStyle(2, 0xff00ff, 1)
-            g.beginFill(0x141414, 0.25)
+            g.beginFill(0x141414)
             g.drawRect(0, 350, 1000, 150)
             g.endFill()
 

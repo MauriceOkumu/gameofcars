@@ -8,8 +8,8 @@ class Sun  extends Component {
                 <Graphics
                 draw={ g => {
                     g.lineStyle(0)
-                    g.beginFill(0xffff40, 0.5)
-                    g.drawCircle(400, 60, 30)
+                    g.beginFill(0xffff40)
+                    g.drawCircle(400, 60, 40)
                     g.endFill()
                 }
             }
