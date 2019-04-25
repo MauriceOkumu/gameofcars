@@ -13,17 +13,16 @@ class Sun  extends Component {
     }
     componentDidMount() {
         this.props.app.ticker.add(this.moveSun);
-        console.log('Props......',this.props)
     }
 
     componentWillUnmount() {
         this.props.app.ticker.remove(this.moveSun)
     }
 
-    moveSun() {
+    moveSun(delta) {
       if(this.state.posX < 1200) {
           this.setState({
-              posX: this.state.posX + .5
+              posX: this.state.posX + .5 * delta
           })
       } else {
           this.setState({posX: -10})
@@ -33,13 +32,13 @@ class Sun  extends Component {
     if(this.state.posX < 600) {
       if(this.state.posY >= 50) {
         this.setState({
-          posY: this.state.posY - .5
+          posY: this.state.posY - .5 * delta
       })
      }
     } else {
       if(this.state.posY <=340)
         this.setState({
-          posY: this.state.posY + .5
+          posY: this.state.posY + .5 * delta
         })
     }
   }

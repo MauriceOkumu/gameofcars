@@ -31,22 +31,20 @@ class PixiApp extends Component {
     <Stage width={1000} height={500} options={
       { backgroundColor:  0x1099bb , antialias: false, interactive: true}
       }>
-    <Container x={0} y={0}>
-      {/* <AppConsumer>
-        {app => <RotatingBunny app={app}/>}
-      </AppConsumer> */}
-      {/* <AppConsumer>
-        {app => <Road app={app}/>}
-      </AppConsumer> */}
-      <AppConsumer>
-        {app => <Sun app={app} />}
-      </AppConsumer>
-    </Container>
-    <WelcomeText />
-    <ScoreText />
-    {/* <Sun /> */}
-    <Clouds />
-    <Road />
+      <Container x={0} y={0}>
+        <AppConsumer>
+          {app => <Sun app={app} />}
+        </AppConsumer>
+      </Container>
+      <Container x={40} y={40}>
+        <AppConsumer>
+          {app => <RotatingBunny app={app}/>}
+        </AppConsumer>
+      </Container>
+      <WelcomeText />
+      <ScoreText />
+      {/* <Clouds /> */}
+      <Road />
   </Stage>
     )
  }

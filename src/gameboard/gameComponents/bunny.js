@@ -28,7 +28,7 @@ console.log('img---------',img)
     render() {
       return (
         <Sprite image={img}
-                scale={[4, 4]}
+                scale={[2, 2]}
                 rotation={this.state.rotation}
                 anchor={[0.5, 0.5]} />
       )

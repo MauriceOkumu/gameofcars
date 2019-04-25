@@ -26,9 +26,8 @@ class Road extends Component {
         return (
             <Graphics
             draw={g => {
-            g.lineStyle(2, 0xff00ff, 1)
             g.beginFill(0x141414)
-            g.drawRect(0, 350, 1000, 150)
+            g.drawRect(0, 350, 1100, 150)
             g.endFill()
 
             g.lineStyle(0, 0xff00ff, 1)
