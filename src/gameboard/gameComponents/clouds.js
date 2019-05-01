@@ -1,30 +1,30 @@
 import React, { Component} from 'react';
 import { Graphics } from '@inlet/react-pixi';
 
-const ticker = new PIXI.ticker.Ticker();
- ticker.stop();
-ticker.start();
-
 class Clouds  extends Component {
     constructor() {
         super();
         this.state = {
             x : 0,
         }
-        this.animate = this.animate.bind(this);
+        this.moveClouds = this.moveClouds.bind(this);
     }
 
     componentDidMount() {
-         ticker.add(this.animate)
+         this.props.app.ticker.add(this.moveClouds)
     }
 
-    animate() {
+    componentWillUnmount() {
+        this.props.app.ticker.remove(this.moveClouds)
+    }
+
+    moveClouds(delta) {
      if(this.state.x < 1200) {
         this.setState({
-            x: this.state.x + 1
+            x: this.state.x + 1 * delta
            })
        } else {
-         this.setState({x: 0})
+         this.setState({x: -10})
       }
     }
 
@@ -33,6 +33,7 @@ class Clouds  extends Component {
            
                 <Graphics
                 draw={ g => {
+                    g.clear()
                     g.lineStyle(0)
                     g.beginFill(0xffffff)
                     g.drawCircle( -50, 80, 30)
@@ -41,7 +42,8 @@ class Clouds  extends Component {
                     g.endFill()
                 }
             }
-               position={{x: this.state.x }}/>
+               position={{x: this.state.x }}
+              />
          
             
         )

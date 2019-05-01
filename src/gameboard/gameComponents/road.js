@@ -3,25 +3,6 @@ import { Graphics } from '@inlet/react-pixi';
 
 
 class Road extends Component {
-    constructor() {
-        super();
-        // this.state = {
-        //     rotation: 0
-        // }
-        // this.tick = this.tick.bind(this)
-    }
-    // componentDidMount() {
-    //     this.props.app.ticker.add(this.tick)
-    //   }
-  
-    //   componentWillUnmount() {
-    //     this.props.app.ticker.remove(this.tick)
-    //   }
-    // tick (delta) {
-    //     this.setState(state => ({
-    //         rotation: state.rotation + 0.1 * delta
-    //     }))
-    // }
     render() {
         return (
             <Graphics
@@ -31,14 +12,15 @@ class Road extends Component {
             g.endFill()
 
             g.lineStyle(0, 0xff00ff, 1)
-            g.beginFill(0xffffff, 0.25)
+            g.beginFill(0xffffff)
             for(let i = 50; i < 1000; i+=200) {
-                g.drawRect(i, 410, 100, 15) 
+                g.drawRect(i, 385, 100, 5) 
+                g.drawRect(i, 430, 100, 5) 
             }
             g.endFill()
             }
+            
         }  
-        // rotation = { this.state.rotation}
         />
         )
     }

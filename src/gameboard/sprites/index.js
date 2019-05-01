@@ -1,1 +1,1 @@
-export { default } from './clouds.jpg';
+export { default } from './Drawing.png';

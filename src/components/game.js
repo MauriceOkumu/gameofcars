@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PixiApp from '../gameboard/pixie';
+import Other from '../gameboard/other';
+// import RunningBoy from '../gameboard/gameComponents/runningBoy';
 import '../css/game.css'
 
 class Game extends Component {
@@ -17,6 +19,8 @@ class Game extends Component {
                     </h1>
                 </div>
                 <PixiApp />
+                {/* <Other /> */}
+                {/* <RunningBoy /> */}
             </div>
         )
     }
