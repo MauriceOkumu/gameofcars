@@ -1,5 +1,5 @@
 import { Stage, Sprite, AppConsumer, Container , Text} from '@inlet/react-pixi';
-import * as PIXI from 'pixi.js';
+import * as PIXI from '@inlet/react-pixi';
 import React, {Component } from 'react';
 import { connect } from 'react-redux';
 import * as car from './sprites';
@@ -10,10 +10,12 @@ import Road from './gameComponents/road';
 import Clouds from './gameComponents/clouds';
 import Obstacle from './gameComponents/obstacles';
 import RaceCar from './gameComponents/raceCar';
-import Trees from './gameComponents/background2'
-import Grass from './gameComponents/background1'
+import Trees from './gameComponents/background2';
+import Grass from './gameComponents/background1';
+import Dirt from'./gameComponents/foreground1';
+import Dirtier from'./gameComponents/foreground2';
 
-PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+// PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
 
 class PixiApp extends Component {
@@ -21,15 +23,28 @@ class PixiApp extends Component {
     super();
     this.state = {
       posX: -10,
-      posY: 340
+      posY: 340,
+      score: 0
     }
+    this.updateScore = this.updateScore.bind(this);
+  }
+  updateScore() {
+     let score = Math.round(requestAnimationFrame(this.updateScore) / 100 );
+     this.setState({
+       score
+     })
+  }
+  componentDidMount() {
+    // this.updateScore();
+    console.log('Spine---------->',PIXI.spine)
   }
 
   render () {
     const { user } = this.props.auth;
+    const { score } = this.state;
     const welcomeText = `Welcome  ${user.name}`
     const WelcomeText = () => <Text  text={welcomeText} style={style} />
-    const ScoreText = () => <Text text="High Scores : (placeholder) 0" x={580} style={style}/>
+    const ScoreText = () => <Text text={`High Scores : ${score}`} x={580} style={style}/>
     const{ posX, posY } = this.state;
     console.log('Pixiapp re-Rendered')
     return (
@@ -44,6 +59,16 @@ class PixiApp extends Component {
       <Container x={0} y={0}>
         <AppConsumer>
           {app => <Grass app={app} />}
+        </AppConsumer>
+      </Container>
+      <Container x={0} y={0}>
+        <AppConsumer>
+          {app => <Dirt app={app} />}
+        </AppConsumer>
+      </Container>
+      <Container x={0} y={0}>
+        <AppConsumer>
+          {app => <Dirtier app={app} />}
         </AppConsumer>
       </Container>
       {/* <Container x={0} y={0}>
