@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import PixiApp from '../gameboard/pixie';
 import Other from '../gameboard/other';
 // import RunningBoy from '../gameboard/gameComponents/runningBoy';
-import '../css/game.css'
+import '../css/game.css';
+import Test from '../gameboard/gameComponents/spines'
 
 class Game extends Component {
     constructor() {
@@ -21,6 +22,7 @@ class Game extends Component {
                 <PixiApp />
                 {/* <Other /> */}
                 {/* <RunningBoy /> */}
+                {/* <Test /> */}
             </div>
         )
     }

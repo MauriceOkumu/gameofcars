@@ -1,1 +1,1 @@
-export { default } from './Drawing.png';
+export { default } from './beachcar.png';

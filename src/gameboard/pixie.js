@@ -17,7 +17,7 @@ import Dirtier from'./gameComponents/foreground2';
 
 // PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
-
+// new PIXI.spine.Spine()
 class PixiApp extends Component {
   constructor() {
     super();
@@ -36,7 +36,7 @@ class PixiApp extends Component {
   }
   componentDidMount() {
     // this.updateScore();
-    console.log('Spine---------->',PIXI.spine)
+    console.log('Spine---------->',PIXI)
   }
 
   render () {
@@ -51,7 +51,7 @@ class PixiApp extends Component {
     <Stage width={1000} height={500} options={
       { backgroundColor:  0x1099bb , antialias: true, interactive: true ,resolution: 1}
       }>
-       <Container x={0} y={0}>
+       {/* <Container x={0} y={0}>
         <AppConsumer>
           {app => <Trees app={app} />}
         </AppConsumer>
@@ -70,22 +70,17 @@ class PixiApp extends Component {
         <AppConsumer>
           {app => <Dirtier app={app} />}
         </AppConsumer>
-      </Container>
-      {/* <Container x={0} y={0}>
+      </Container> */}
+      <Container x={0} y={0}>
         <AppConsumer>
           {app => <Sun app={app} />}
         </AppConsumer>
-      </Container> */}
-      {/* <Container x={0} y={0}>
+      </Container> 
+      <Container x={0} y={0}>
         <AppConsumer>
           {app => <Clouds app={app} />}
         </AppConsumer>
-      </Container> */}
-      {/* <Container x={0} y={0}>
-        <AppConsumer>
-          {app => <Obstacle app={app} />}
-        </AppConsumer>
-      </Container> */}
+      </Container> 
       {/* <Container x={40} y={40}>
         <AppConsumer>
           {app => <RotatingBunny app={app}/>}
@@ -93,17 +88,17 @@ class PixiApp extends Component {
       </Container> */}
       <WelcomeText />
       <ScoreText />
-      {/* <Road /> */}
+       <Road />
       <Container x={0} y={60}>
         <AppConsumer>
           {app => <Obstacle app={app} />}
         </AppConsumer>
       </Container>
-      {/* <Container x={120} y={360}>
+      <Container x={120} y={360}>
         <AppConsumer>
           {app => <RaceCar app={app} />}
         </AppConsumer>
-      </Container> */}
+      </Container>
       {/* <Sprite image={car.default} scale={[5,5]} anchor={[100,100]}/> */}
   </Stage>
     )
