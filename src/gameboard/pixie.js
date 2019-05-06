@@ -14,6 +14,9 @@ import Trees from './gameComponents/background2';
 import Grass from './gameComponents/background1';
 import Dirt from'./gameComponents/foreground1';
 import Dirtier from'./gameComponents/foreground2';
+import MixedTrees from './gameComponents/treebackground';
+import Mountain from './gameComponents/mountainbackground';
+import Palms from './gameComponents/palms';
 
 // PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
@@ -81,11 +84,26 @@ class PixiApp extends Component {
           {app => <Clouds app={app} />}
         </AppConsumer>
       </Container> 
-      {/* <Container x={40} y={40}>
+      <Container x={40} y={190}>
         <AppConsumer>
-          {app => <RotatingBunny app={app}/>}
+          {app => <MixedTrees app={app}/>}
         </AppConsumer>
-      </Container> */}
+      </Container>
+      <Container x={440} y={190}>
+        <AppConsumer>
+          {app => <MixedTrees app={app}/>}
+        </AppConsumer>
+      </Container>
+      <Container x={40} y={120}>
+        <AppConsumer>
+          {app => <Palms app={app}/>}
+        </AppConsumer>
+      </Container>
+      <Container x={640} y={120}>
+        <AppConsumer>
+          {app => <Palms app={app}/>}
+        </AppConsumer>
+      </Container>
       <WelcomeText />
       <ScoreText />
        <Road />
@@ -99,7 +117,6 @@ class PixiApp extends Component {
           {app => <RaceCar app={app} />}
         </AppConsumer>
       </Container>
-      {/* <Sprite image={car.default} scale={[5,5]} anchor={[100,100]}/> */}
   </Stage>
     )
  }

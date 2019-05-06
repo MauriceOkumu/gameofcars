@@ -21,7 +21,7 @@ class Clouds  extends Component {
     moveClouds(delta) {
      if(this.state.x < 1200) {
         this.setState({
-            x: this.state.x + 1 * delta
+            x: this.state.x + .05 * delta
            })
        } else {
          this.setState({x: -10})

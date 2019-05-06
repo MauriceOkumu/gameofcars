@@ -22,7 +22,7 @@ class Sun  extends Component {
     moveSun(delta) {
       if(this.state.posX < 1200) {
           this.setState({
-              posX: this.state.posX + .5 * (delta + 0.1)
+              posX: this.state.posX + .2 * (delta )
           })
       } else {
           this.setState({posX: -10})
@@ -32,13 +32,13 @@ class Sun  extends Component {
     if(this.state.posX < 600) {
       if(this.state.posY >= 50) {
         this.setState({
-          posY: this.state.posY - .4 * (delta + 0.1)
+          posY: this.state.posY - .2 * (delta )
       })
      }
     } else {
       if(this.state.posY <=400)
         this.setState({
-          posY: this.state.posY + .4 * (delta + 0.1)
+          posY: this.state.posY + .2 * (delta )
         })
     }
   }
