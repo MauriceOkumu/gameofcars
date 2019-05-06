@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import PixiApp from '../gameboard/pixie';
+import FairyLand from '../gameboard/fairyLand';
 import '../css/game.css';
 
 
-class Game extends Component {
+class Fairy extends Component {
     constructor() {
         super();
     }
@@ -14,10 +14,10 @@ class Game extends Component {
             <div id="game">
                 <div id="info">
                     <h1>
-                    Game Canvas
+                    Fairy Canvas
                     </h1>
                 </div>
-                <PixiApp />
+                <FairyLand />
             </div>
         )
     }
@@ -27,4 +27,4 @@ const mapStateToProps = state => ({
     auth: state.auth,
 })
 
-export default connect(mapStateToProps)(Game);
+export default connect(mapStateToProps)(Fairy);

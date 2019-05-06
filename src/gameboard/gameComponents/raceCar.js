@@ -12,7 +12,7 @@ const img = require('../sprites').default;
 
     componentDidMount() {
     //   this.props.app.ticker.add(this.tick)
-      console.log(new Date(), ' Work is done')
+     
     }
 
     componentWillUnmount() {

@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import Welcome from '../components/app';
 import Login from '../components/login';
 import Game from '../components/game';
+import FairyLand from '../components/fairy';
 import Register from '../components/register';
 import { logoutUser } from '../actions/authentication'
 import "../css/routes.css";
@@ -23,10 +24,14 @@ class Allroutes extends Component {
       <div>
         <ul className="navbar-nav ml-auto">
         <li  className="nav-item">
-              <NavLink activeClassName="active" to="/game">Game</NavLink>
+              <NavLink activeClassName="active" to="/game">Car Game</NavLink>
         </li>
         <li  className="nav-item">
-          <NavLink activeClassName="active"  onClick={this.onLogout.bind(this)} to="/">Logout </NavLink>
+              <NavLink activeClassName="active" to="/fairyland">FairyLand</NavLink>
+        </li>
+        <li></li>
+        <li  className="nav-item">
+          <NavLink exact activeClassName="active"  onClick={this.onLogout.bind(this)} to="/">Logout </NavLink>
         </li>
       </ul>
       </div>
@@ -57,7 +62,8 @@ class Allroutes extends Component {
         <Route exact path="/" component={Welcome} />
         <Route exact path="/add" component={Register} />
         <Route exact path="/login" component={Login} />
-        <Route  path="/game" component={Game} />
+        <Route  exact path="/game" component={Game} />
+        <Route  exact path="/fairyland" component={FairyLand} />
       </Switch>
     </BrowserRouter>
     )
