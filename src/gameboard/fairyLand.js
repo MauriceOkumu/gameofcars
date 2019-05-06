@@ -66,11 +66,11 @@ class FairyLand extends Component {
           {app => <Obstacle app={app} />}
         </AppConsumer>
       </Container>
-      <Container x={120} y={360}>
+      {/* <Container x={120} y={360}>
         <AppConsumer>
           {app => <RaceCar app={app} />}
         </AppConsumer>
-      </Container>
+      </Container> */}
   </Stage>
     )
  }

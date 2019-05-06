@@ -10,6 +10,7 @@ import RaceCar from './gameComponents/raceCar';
 import MixedTrees from './gameComponents/treebackground';
 import Palms from './gameComponents/palms';
 
+
 class PixiApp extends Component {
   constructor() {
     super();
@@ -27,7 +28,7 @@ class PixiApp extends Component {
      })
   }
   componentDidMount() {
-  
+   
   }
 
   render () {
