@@ -9,7 +9,13 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js --mode development --open",
     "transpile": "babel src/index.js",
-    "build": "webpack --config webpack.prod.config.js --mode production"
+    "build": "webpack --config webpack.prod.config.js --mode production",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors"
+  },
+  "jest": {
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "dependencies": {
     "@babel/core": "^7.4.0",
@@ -42,7 +48,11 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-transform-runtime": "^7.4.3",
+    "babel-jest": "^24.8.0",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
     "file-loader": "^3.0.1",
     "image-webpack-loader": "^4.6.0",
     "imagemin-gifsicle": "^6.0.1",
@@ -51,6 +61,7 @@
     "imagemin-svgo": "^7.0.0",
     "imagemin-webpack": "^4.1.0",
     "imagemin-webpack-plugin": "^2.4.2",
+    "jest": "^24.8.0",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.3",
     "url-loader": "^1.1.2",

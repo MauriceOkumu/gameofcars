@@ -83,7 +83,7 @@ module.exports = {
             }
         ]
     },
-    stats: 'verbose',
+    // stats: 'verbose',
     devtool: 'inline-source-map',
     plugins: [
         new HtmlWebPackPlugin({

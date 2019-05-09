@@ -27,6 +27,7 @@ const img = require('../sprites').default;
 
     tick (delta)  {
       keyboard.update()
+      
       Move(this)
     }
 
