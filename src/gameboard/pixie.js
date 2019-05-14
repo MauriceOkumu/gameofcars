@@ -17,7 +17,6 @@ class PixiApp extends Component {
     this.state = {
       posX: -10,
       posY: 340,
-      score: 0
     }
     this.updateScore = this.updateScore.bind(this);
   }
@@ -33,10 +32,8 @@ class PixiApp extends Component {
 
   render () {
     const { user } = this.props.auth;
-    const { score } = this.state;
     const welcomeText = `Welcome  ${user.name}`
     const WelcomeText = () => <Text  text={welcomeText} style={style} />
-    const ScoreText = () => <Text text={`High Scores : ${score}`} x={580} style={style}/>
     return (
     <Stage width={1000} height={500} options={
       { backgroundColor:  0x1099bb , antialias: true, interactive: true ,resolution: 1}
@@ -72,14 +69,14 @@ class PixiApp extends Component {
         </AppConsumer>
       </Container>
       <WelcomeText />
-      <ScoreText />
+      {/* <ScoreText /> */}
        <Road />
       <Container x={0} y={60}>
         <AppConsumer>
           {app => <Obstacle app={app} />}
         </AppConsumer>
       </Container>
-      <Container x={120} y={360}>
+      <Container >
         <AppConsumer>
           {app => <RaceCar app={app} />}
         </AppConsumer>

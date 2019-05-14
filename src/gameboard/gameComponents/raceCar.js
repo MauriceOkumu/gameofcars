@@ -1,8 +1,9 @@
-import {Sprite, Graphics } from '@inlet/react-pixi';
+import {Sprite, Text , Container} from '@inlet/react-pixi';
 import React, {Component } from 'react';
 const keyboard = require('pixi.js-keyboard');
-const Mouse = require('pixi.js-mouse');
-import { Move } from './methods';
+import { Move, UpdateHighScore } from './methods';
+import { style } from './textStyles'
+import { thisExpression } from '@babel/types';
 
 const img = require('../sprites').default;
 
@@ -10,9 +11,10 @@ const img = require('../sprites').default;
      constructor() {
          super();
       this. state = { 
-        rotation: 0 ,
         posX: 0,
-        posY: 0
+        posY: 0,
+        score: 0,
+        hScore: 50
       }
       this.tick = this.tick.bind(this)
      }
@@ -27,19 +29,25 @@ const img = require('../sprites').default;
 
     tick (delta)  {
       keyboard.update()
-      
       Move(this)
+      UpdateHighScore(this)
     }
 
     render() {
-      const{ posX, posY, rotation } = this.state
+      console.log('Car rerendered')
+      const{ posX, posY, score,hScore } = this.state
+      const ScoreText = () => <Text text={`High Scores : ${hScore}`} x={580} y={-350} style={style}/>
+      const Score = () => <Text text={`Scores : ${score}`} x={580} y={-320} style={style}/>
       return (
-        <Sprite image={img}
+        <Container x={120} y={360}>
+          <Sprite image={img}
                 scale={[0.4, 0.4]}
                 anchor={[0.5, 0.5]}
-                rotation={rotation}
                 position={{x: posX, y: posY}}
-        />
+          />
+          <ScoreText />
+          <Score />
+        </Container>
       )
     }
   }
