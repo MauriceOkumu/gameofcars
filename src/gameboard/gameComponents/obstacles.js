@@ -8,7 +8,8 @@ class Obstacle extends Component {
             positionX: 1000,
             color: Math.random()*0xFFFFFF,
             size: 10 * Math.random() * 10,
-            initialPosY: Math.floor(Math.random() * 81) + 300
+            initialPosY: Math.floor(Math.random() * 81) + 300,
+            speed:  Math.floor(Math.random() * (10- 2 + 1)) + 2
         }
         this.moveObstacle = this.moveObstacle.bind(this);
     }
@@ -22,7 +23,7 @@ class Obstacle extends Component {
     moveObstacle(delta) {
        if(this.state.positionX <=1000 && this.state.positionX > -4) {
            this.setState({
-               positionX: this.state.positionX -1  * 10
+               positionX: this.state.positionX -1  * this.state.speed
            })
        } else {
            this.setState({
