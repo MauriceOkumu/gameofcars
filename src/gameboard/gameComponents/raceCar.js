@@ -2,8 +2,7 @@ import {Sprite, Text , Container} from '@inlet/react-pixi';
 import React, {Component } from 'react';
 const keyboard = require('pixi.js-keyboard');
 import { Move, UpdateHighScore } from './methods';
-import { style } from './textStyles'
-import { thisExpression } from '@babel/types';
+import { style } from './textStyles';
 
 const img = require('../sprites').default;
 
@@ -13,8 +12,8 @@ const img = require('../sprites').default;
       this. state = { 
         posX: 0,
         posY: 0,
-        score: 0,
-        hScore: 50
+        score: 90,
+        hScore: 95
       }
       this.tick = this.tick.bind(this)
      }
@@ -34,7 +33,6 @@ const img = require('../sprites').default;
     }
 
     render() {
-      console.log('Car rerendered')
       const{ posX, posY, score,hScore } = this.state
       const ScoreText = () => <Text text={`High Scores : ${hScore}`} x={580} y={-350} style={style}/>
       const Score = () => <Text text={`Scores : ${score}`} x={580} y={-320} style={style}/>
