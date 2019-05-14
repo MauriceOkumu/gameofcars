@@ -22,7 +22,7 @@ class Obstacle extends Component {
     moveObstacle(delta) {
        if(this.state.positionX <=1000 && this.state.positionX > -4) {
            this.setState({
-               positionX: this.state.positionX -1 * delta * Math.random() * 10
+               positionX: this.state.positionX -1  * 10
            })
        } else {
            this.setState({

@@ -2,7 +2,7 @@
 import React,{ Component } from "react";
 import axios from 'axios';
 import { connect } from 'react-redux';
-//import '../css/app.css';
+import '../css/app.css';
 
 class Welcome extends Component{
     constructor() {

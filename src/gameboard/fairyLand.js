@@ -1,9 +1,8 @@
-import { Stage, Sprite, AppConsumer, Container , Text} from '@inlet/react-pixi';
+import { Stage, AppConsumer, Container , Text} from '@inlet/react-pixi';
 import React, {Component } from 'react';
 import { connect } from 'react-redux';
 import { style } from './gameComponents/textStyles'
 import Obstacle from './gameComponents/obstacles';
-import RaceCar from './gameComponents/raceCar';
 import Trees from './gameComponents/background2';
 import Grass from './gameComponents/background1';
 import Dirt from'./gameComponents/foreground1';
@@ -66,11 +65,6 @@ class FairyLand extends Component {
           {app => <Obstacle app={app} />}
         </AppConsumer>
       </Container>
-      {/* <Container x={120} y={360}>
-        <AppConsumer>
-          {app => <RaceCar app={app} />}
-        </AppConsumer>
-      </Container> */}
   </Stage>
     )
  }

@@ -30,7 +30,6 @@ class Login extends Component {
             email,
             password
         }
-        console.log(user);
         this.props.loginUser(user, this.props.history);
     }
     componentDidMount() {
@@ -51,6 +50,7 @@ class Login extends Component {
 
     render() {
         const { errors } = this.state;
+        console.log('Errors---->', errors)
         return (
             <div className="container">
                 <form onSubmit={ this.handleSubmit }>

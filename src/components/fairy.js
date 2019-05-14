@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import FairyLand from '../gameboard/fairyLand';
 import '../css/game.css';
 
-
 class Fairy extends Component {
     constructor() {
         super();
