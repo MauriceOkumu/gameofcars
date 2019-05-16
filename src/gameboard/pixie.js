@@ -18,22 +18,38 @@ class PixiApp extends Component {
       posX: -10,
       posY: 340,
     }
-    this.updateScore = this.updateScore.bind(this);
+    // this.updateScore = this.updateScore.bind(this);
+    this.releaseObstacles = this.releaseObstacles.bind(this)
   }
   updateScore() {
-     let score = Math.round(requestAnimationFrame(this.updateScore) / 100 );
+     let score = Math.round(requestAnimationFrame(this.updateScore) / 10000 );
      this.setState({
        score
      })
   }
   componentDidMount() {
-   
+  //  console.log('This is the stage ', this.children)
+  
+  }
+  componentWillUnmount() {
+  
+  }
+  releaseObstacles() {
+  
+    //   // console.log('Hurray')
+    //   return <Container x={0} y={60}>
+    //   <AppConsumer>
+    //     {app => <Obstacle app={app} />}
+    //   </AppConsumer>
+    // </Container>
+    // }, 1000)
   }
 
   render () {
     const { user } = this.props.auth;
     const welcomeText = `Welcome  ${user.name}`
     const WelcomeText = () => <Text  text={welcomeText} style={style} />
+    console.log('This is the stage ', this)
     return (
     <Stage width={1000} height={500} options={
       { backgroundColor:  0x1099bb , antialias: true, interactive: true ,resolution: 1}

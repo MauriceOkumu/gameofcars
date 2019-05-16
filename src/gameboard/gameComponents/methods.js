@@ -1,10 +1,10 @@
 const keyboard = require('pixi.js-keyboard');
 export const Move = (classObj)=> {
      
-    let num = (+classObj.state.score +.01).toFixed(2) 
+    let num = (+classObj.state.score +.5).toFixed() 
 
      classObj.setState({
-      score: num
+      score: num 
     })
     if( keyboard.isKeyDown('ArrowRight', 'KeyD') ) {
         classObj.setState({
@@ -30,7 +30,7 @@ export const Move = (classObj)=> {
   }
 
 export const UpdateHighScore = (obj) => {
-  let num = (+obj.state.score +.01).toFixed(2) 
+  let num = (+obj.state.score +.5).toFixed() 
   if(obj.state.score >= obj.state.hScore){
     obj.setState({
       hScore: num

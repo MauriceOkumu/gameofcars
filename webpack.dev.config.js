@@ -3,7 +3,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const path = require('path');
 
 module.exports = {
-      //entry: './src/index.js',
+      entry: './src/index.js',
     output: {
         path: path.join(__dirname ,'/dist'),
         filename: 'main.js'
@@ -83,7 +83,7 @@ module.exports = {
             }
         ]
     },
-    stats: 'verbose',
+    //stats: 'verbose',
     devtool: 'inline-source-map',
     plugins: [
         new HtmlWebPackPlugin({
