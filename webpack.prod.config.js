@@ -1,12 +1,12 @@
 const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const common = require('./webpack.dev.config');
-const  ImageminPlugin = require('imagemin-webpack-plugin').default;
+// const  ImageminPlugin = require('imagemin-webpack-plugin').default;
 
-const imageminGifsicle = require("imagemin-gifsicle");
-const imageminJpegtran = require("imagemin-jpegtran");
-const imageminOptipng = require("imagemin-optipng");
-const imageminSvgo = require("imagemin-svgo");
+// const imageminGifsicle = require("imagemin-gifsicle");
+// const imageminJpegtran = require("imagemin-jpegtran");
+// const imageminOptipng = require("imagemin-optipng");
+// const imageminSvgo = require("imagemin-svgo");
 
 module.exports = merge(common,
     {
@@ -15,27 +15,32 @@ module.exports = merge(common,
           minimizer: [
             new TerserPlugin({
               sourceMap: true, 
+              test: /\.js(\?.*)?$/i,
+              exclude: /\/node_modules/,
+              cache: true,
+              parallel: true,
             }),
-            new ImageminPlugin({
-            bail: false,
-            cache: true,
-            imageminOptions: {
-                plugins: [
-                  imageminGifsicle({
-                    interlaced: true
-                  }),
-                  imageminJpegtran({
-                    progressive: true
-                  }),
-                  imageminOptipng({
-                    optimizationLevel: 5
-                  }),
-                  imageminSvgo({
-                    removeViewBox: true
-                  })
-                ]
-              }
-        })
+        //     new ImageminPlugin({
+        //     bail: false,
+        //     cache: true,
+        //     parallel: true,
+        //     imageminOptions: {
+        //         plugins: [
+        //           imageminGifsicle({
+        //             interlaced: true
+        //           }),
+        //           imageminJpegtran({
+        //             progressive: true
+        //           }),
+        //           imageminOptipng({
+        //             optimizationLevel: 5
+        //           }),
+        //           imageminSvgo({
+        //             removeViewBox: true
+        //           })
+        //         ]
+        //       }
+        // })
           ],
 
           runtimeChunk: false,
@@ -43,10 +48,11 @@ module.exports = merge(common,
               cacheGroups: {
                   default: false,
                   commons : {
-                      test: /[\\/]node_modules[\\/]/,
+                      test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
                       name: 'vendors',
                       chunks: 'all',
-                      minChunks: 2
+                      minChunks: 2,
+                      reuseExistingChunk: true
                   }
               }
           }
