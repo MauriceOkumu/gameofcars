@@ -1,6 +1,5 @@
-import * as PIXI from 'pixi.js'
 // const boy = require('../pixies/spineboy.json');
-import { Spine , Stage, Sprite} from '@inlet/react-pixi';
+import { Stage, Sprite} from '@inlet/react-pixi';
 
 import React from 'react';
 

@@ -74,7 +74,8 @@ module.exports = {
                           // the webp option will enable WEBP
                           webp: {
                             quality: 75
-                          }
+                          },
+                          enforce: 'pre'
                         }
                     
                 }
@@ -90,6 +91,6 @@ module.exports = {
             template: './src/index.html',
             // filename: './index.html'
         }),
-       // new BundleAnalyzerPlugin()
+       new BundleAnalyzerPlugin()
     ]
 };
