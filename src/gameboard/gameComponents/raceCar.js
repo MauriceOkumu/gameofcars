@@ -12,10 +12,10 @@ const img = require('../sprites').default;
       this. state = { 
         posX: 0,
         posY: 0,
-        score: 90,
-        hScore: 95,
-        s:0,
-        hs:null
+        score: 0,
+        hScore: 0,
+        renderedHighScore:null,
+        renderedScore: null
       }
       this.tick = this.tick.bind(this)
      }
@@ -33,14 +33,15 @@ const img = require('../sprites').default;
       Move(this)
       UpdateHighScore(this)
       this.setState({
-        hs: (this.state.hScore / 100).toFixed()
+        renderedHighScore: (this.state.hScore / 50).toFixed(),
+        renderedScore: (this.state.score / 50).toFixed()
       })
     }
 
     render() {
-      const{ posX, posY, score,hScore, hs } = this.state
-      const ScoreText = () => <Text text={`High Scores : ${hs}`} x={580} y={-350} style={style}/>
-      const Score = () => <Text text={`Scores : ${score}`} x={580} y={-320} style={style}/>
+      const{ posX, posY, renderedHighScore, renderedScore} = this.state
+      const ScoreText = () => <Text text={`High Scores : ${renderedHighScore}`} x={580} y={-350} style={style}/>
+      const Score = () => <Text text={`Scores : ${renderedScore}`} x={580} y={-320} style={style}/>
       return (
         <Container x={120} y={360}>
           <Sprite image={img}

@@ -30,7 +30,7 @@ export const Move = (classObj)=> {
   }
 
 export const UpdateHighScore = (obj) => {
-  let num = (+obj.state.score +.5).toFixed() 
+  let num = (+obj.state.score +.5 ).toFixed() 
   if(obj.state.score >= obj.state.hScore){
     obj.setState({
       hScore: num

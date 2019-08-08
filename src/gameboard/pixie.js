@@ -35,21 +35,22 @@ class PixiApp extends Component {
   
   }
   releaseObstacles() {
-  
-    //   // console.log('Hurray')
-    //   return <Container x={0} y={60}>
-    //   <AppConsumer>
-    //     {app => <Obstacle app={app} />}
-    //   </AppConsumer>
-    // </Container>
-    // }, 1000)
+    let obsArray = [];
+    for (let i = 0; i < 5; i++) {
+      obsArray.push(<Container x={0} y={60}>
+           <AppConsumer>
+             {app => <Obstacle app={app} />}
+           </AppConsumer>
+         </Container>)
+    }
+    return obsArray
   }
 
   render () {
     const { user } = this.props.auth;
     const welcomeText = `Welcome  ${user.name}`
     const WelcomeText = () => <Text  text={welcomeText} style={style} />
-    console.log('This is the stage ', this)
+    
     return (
     <Stage width={1000} height={500} options={
       { backgroundColor:  0x1099bb , antialias: true, interactive: true ,resolution: 1}
@@ -85,14 +86,9 @@ class PixiApp extends Component {
         </AppConsumer>
       </Container>
       <WelcomeText />
-      {/* <ScoreText /> */}
        <Road />
-      <Container x={0} y={60}>
-        <AppConsumer>
-          {app => <Obstacle app={app} />}
-        </AppConsumer>
-      </Container>
-      <Container >
+      {this.releaseObstacles()}
+      <Container >      
         <AppConsumer>
           {app => <RaceCar app={app} />}
         </AppConsumer>
