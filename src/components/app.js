@@ -24,15 +24,15 @@ class Welcome extends Component{
     render() {
         const { data} = this.state;
         const{user} = this.props.auth;
-        const  users = data.map((user, key) => <li key={key}>{user.name}</li>)
+        // const  users = data.map((user, key) => <li key={key}>{user.name}</li>)
          return (
          
             <div>
                 {!user.name && <h1>Welcome Guest Please login or register to start the game</h1>}
               {user.name && <h1>Welcome  {user.name} enjoy the game</h1>}
-              <h1>All registered users</h1>
+              {/* <h1>All registered users</h1> */}
               <ul>
-                  { users }
+                  {/* { users } */}
               </ul>
             </div>
             

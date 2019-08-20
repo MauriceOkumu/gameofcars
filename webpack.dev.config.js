@@ -1,12 +1,13 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
 module.exports = {
-      entry: './src/index.js',
+    entry: './src/index.js',
     output: {
         path: path.join(__dirname ,'/dist'),
-        filename: 'main.js'
+        filename: 'main.js',
+        // publicPath: '/dist/'
     },
     resolve: {
         extensions: ['.js','.jsx']
@@ -14,7 +15,9 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         historyApiFallback: true,
-        hot: true
+        hot: true,
+        compress: true,
+        
     },
     module: {
         rules: [
@@ -89,8 +92,9 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: './src/index.html',
-            // filename: './index.html'
+            filename: './index.html',     
+            path: path.resolve(__dirname, 'dist')
         }),
-       new BundleAnalyzerPlugin()
+    //    new BundleAnalyzerPlugin()
     ]
 };

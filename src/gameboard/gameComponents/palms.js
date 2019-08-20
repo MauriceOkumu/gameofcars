@@ -16,7 +16,7 @@ import { Sprite } from '@inlet/react-pixi';
     }
     moveBackGround(delta) {
         this.setState({
-            posX: this.state.posX -1* delta
+            posX: this.state.posX -2* delta
         })
         if(this.state.posX < -1300) {
             this.setState({
@@ -27,7 +27,7 @@ import { Sprite } from '@inlet/react-pixi';
    
     render() {
       return (
-             <Sprite image={require('../sprites/palms.png')} 
+             <Sprite image={require('../../../static/sprites/palms.png')} 
                 position={{
                   x: this.state.posX,
                   y: this.state.posY

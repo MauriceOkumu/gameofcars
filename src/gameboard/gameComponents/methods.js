@@ -8,12 +8,12 @@ export const Move = (classObj)=> {
     })
     if( keyboard.isKeyDown('ArrowRight', 'KeyD') ) {
         classObj.setState({
-         posX: classObj.state.posX + 1
+         posX: classObj.state.posX + 2
         })
     }
     if( keyboard.isKeyDown('ArrowLeft', 'KeyA') ) {
       classObj.setState({
-       posX: classObj.state.posX - 1
+       posX: classObj.state.posX - 2
       })
     }
     if( keyboard.isKeyDown('ArrowUp', 'KeyA') ) {

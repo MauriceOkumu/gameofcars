@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Obstacle from './obstacles'
+import { AppConsumer } from '@inlet/react-pixi';
 
 class ManyObstacles extends Component {
     constructor() {
@@ -11,7 +12,12 @@ class ManyObstacles extends Component {
     }
     render () {
         return (
-           <Obstacle />
+           <Container>
+               <AppConsumer>
+                  {app => <Obstacle app={app}/>}
+               </AppConsumer>
+           </Container>
+           
         )
     }
 }

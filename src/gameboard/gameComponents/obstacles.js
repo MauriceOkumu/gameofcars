@@ -21,15 +21,16 @@ class Obstacle extends Component {
         this.props.app.ticker.remove(this.moveObstacle)
     }
     moveObstacle(delta) {
-       if(this.state.positionX <=1000 && this.state.positionX > -4) {
+    //    if(this.state.positionX <=1000 && this.state.positionX > -4) {
            this.setState({
                positionX: this.state.positionX -1  * this.state.speed
            })
-       } else {
+    //    } else {
            this.setState({
-               positionX: 1000
+            //    positionX: 1000
            })
-       }
+    //    }
+    //   console.log(this.state.positionX)
     }
     render() {
         const {positionX, color, size, initialPosY} = this.state;
@@ -37,10 +38,9 @@ class Obstacle extends Component {
              <Graphics
                draw={g =>
                 {
-                    g.clear()
+                g.clear()
                 g.lineStyle(0, 0xff00ff, 1)
-                g.beginFill(color)
-                
+                g.beginFill(color) 
                 g.drawRect(0, initialPosY, size ,size) 
                 g.endFill()
 

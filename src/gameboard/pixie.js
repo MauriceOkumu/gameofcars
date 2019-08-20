@@ -10,15 +10,15 @@ import RaceCar from './gameComponents/raceCar';
 import MixedTrees from './gameComponents/treebackground';
 import Palms from './gameComponents/palms';
 
-
 class PixiApp extends Component {
   constructor() {
     super();
     this.state = {
       posX: -10,
       posY: 340,
+      obsArray: []
+    
     }
-    // this.updateScore = this.updateScore.bind(this);
     this.releaseObstacles = this.releaseObstacles.bind(this)
   }
   updateScore() {
@@ -28,22 +28,40 @@ class PixiApp extends Component {
      })
   }
   componentDidMount() {
-  //  console.log('This is the stage ', this.children)
-  
+  let me = this;
+  // this.setinterval = setInterval(() => {
+    //  let b = <Container x={0} y={60}>
+    //   <AppConsumer>
+    //     {app => <Obstacle app={app} />}
+    //   </AppConsumer>
+    // </Container>
+    // // console.log('Inside Length =>',this.state.obsArray.length)
+    // if(me.state.obsArray.length < 3) {
+    // me.setState({obsArray: this.state.obsArray.concat(b)})} else {
+    //   me.setState({ obsArray: []})
+    // }
+    // console.log('App => ',b)
+  // }, 2000)
+ 
   }
   componentWillUnmount() {
-  
+  //  clearInterval(this.setinterval)
   }
   releaseObstacles() {
-    let obsArray = [];
-    for (let i = 0; i < 5; i++) {
-      obsArray.push(<Container x={0} y={60}>
-           <AppConsumer>
-             {app => <Obstacle app={app} />}
-           </AppConsumer>
-         </Container>)
-    }
-    return obsArray
+    // return this.state.obsArray[0]
+    let arr = []
+    let keys = 0
+    let b = <Container x={0} y={60} key={keys++}>
+      <AppConsumer>
+        {app => <Obstacle app={app} />}
+      </AppConsumer>
+    </Container>
+       arr.push(b)
+    //  this.setinterval = setInterval(() => {
+      
+      console.log(arr.length)
+    // }, 1000)
+    return arr;
   }
 
   render () {
@@ -87,7 +105,10 @@ class PixiApp extends Component {
       </Container>
       <WelcomeText />
        <Road />
-      {this.releaseObstacles()}
+      
+       {this.releaseObstacles()}
+       
+       
       <Container >      
         <AppConsumer>
           {app => <RaceCar app={app} />}

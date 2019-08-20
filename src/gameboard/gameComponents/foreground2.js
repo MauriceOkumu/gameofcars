@@ -28,7 +28,7 @@ class Dirtier extends Component {
     render() {
       return (
       
-             <Sprite image={require('../sprites/iP4_ground.png')} 
+             <Sprite image={require('../../../static/sprites/iP4_ground.png')} 
             position={{
                 x: this.state.posX,
                 y: this.state.posY

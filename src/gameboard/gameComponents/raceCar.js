@@ -4,7 +4,7 @@ const keyboard = require('pixi.js-keyboard');
 import { Move, UpdateHighScore } from './methods';
 import { style } from './textStyles';
 
-const img = require('../sprites').default;
+const img = require('../../../static/sprites').default;
 
   class RaceCar extends Component {
      constructor() {

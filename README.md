@@ -10,10 +10,10 @@ _From the root do_
 
 _From your local, make sure that mongodb is running_
 
-_open the terminal and cd into the root/backend _
+_open the terminal and _
 
-'''nodemon''' to start the backend developement server
-**Then in your root do**
+'''nodemon''' to start the developement server
+**Then do**
 '''yarn start'''
 
 The app should be up and running.

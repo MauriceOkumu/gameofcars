@@ -27,7 +27,7 @@ import { Sprite } from '@inlet/react-pixi';
    
     render() {
       return (
-             <Sprite image={require('../sprites/iP4_BGtile.jpg')} 
+             <Sprite image={require('../../../static/sprites/iP4_BGtile.jpg')} 
                 position={{
                   x: this.state.posX,
                   y: this.state.posY
