@@ -7,7 +7,7 @@
   "author": "mauriceokumu <maurice.okumu@thoughtworks.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon -r esm",
+    "start": "node -r esm",
     "transpile": "babel src/index.js",
     "build": "webpack --config webpack.prod.config.js --mode production --profile --json > stats.json",
     "test": "jest",
