@@ -1,10 +1,10 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const dbConfig = require('./db/db');
-const Routes = require('./dbRoutes/userRoutes');
-const passport = require('passport');
+import express from'express';
+import mongoose from'mongoose';
+import bodyParser from'body-parser';
+import cors from'cors';
+import dbConfig from'./db/db';
+import Routes from'./dbRoutes/userRoutes';
+import passport from'passport';
 
 
 const app = express();
@@ -28,5 +28,4 @@ mongoose.connect(dbConfig.DB,{
 
 app.use('/users', Routes);
 
-
-module.exports = app;
+export default app

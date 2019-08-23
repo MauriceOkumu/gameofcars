@@ -1,12 +1,12 @@
-const express = require('express');
-const mongoose = require('mongoose');
+import express from'express';
+import bcrypt from'bcryptjs';
+import passport from'passport';
+import jwt from'jsonwebtoken';
+import User from'../dbModels/userSchema';
+import validateRegisterInputs from'../validation/register';
+import validateLoginInputs from'../validation/login';
+
 const Routes = express.Router();
-const bcrypt = require('bcryptjs');
-const passport = require('passport');
-const jwt = require('jsonwebtoken');
-const User = require('../dbModels/userSchema');
-const validateRegisterInputs = require('../validation/register');
-const validateLoginInputs = require('../validation/login');
 
 Routes.route('/').get((req, res) => {
   User.find((err, users) => {
@@ -114,4 +114,4 @@ Routes.route('/add').post((req, res) => {
      })
  })
 
-  module.exports = Routes;
+   export default Routes;
