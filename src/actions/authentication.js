@@ -2,10 +2,11 @@ import axios from 'axios';
 import { GET_ERRORS, SET_CURRENT_USER } from '../constants/action-types';
 import setAuthToken from '../authToken/setAuthToken';
 import jwt_decode from 'jwt-decode';
-let port = process.env.PORT || 5000
+import { devport } from '../ports'
+
 export const registerUser = (user, history) => dispatch => {
-    // let port = process.env.PORT || 5000
-    axios.post(`http://localhost:${port}/users/add`, user)
+  
+    axios.post(`${devport}/users/add`, user)
     .then(res => history.push('/login'))
     .catch(err => {
         console.log('Errors-------',err.response.data)
@@ -17,7 +18,7 @@ export const registerUser = (user, history) => dispatch => {
 }
 
 export const loginUser = (user) => dispatch => {
-    axios.post(`http://localhost:${port}/users/login`, user)
+    axios.post(`${devport}users/login`, user)
     .then(res => {
         const { token } = res.data;
         localStorage.setItem('jwtToken', token);

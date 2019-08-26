@@ -7,7 +7,7 @@
   "author": "mauriceokumu <maurice.okumu@thoughtworks.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node -r esm",
+    "start": "webpack-dev-server --config webpack.dev.config.js --mode development --open",
     "transpile": "babel src/index.js",
     "build": "webpack --config webpack.prod.config.js --mode production --profile --json > stats.json",
     "test": "jest",
@@ -62,7 +62,7 @@
     "validator": "^10.11.0",
     "webpack": "^4.29.6"
   },
-  "proxy": "http://localhost:5000/",
+ 
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-transform-runtime": "^7.4.3",

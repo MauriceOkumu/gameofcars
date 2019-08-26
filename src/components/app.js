@@ -3,6 +3,7 @@ import React,{ Component } from "react";
 import axios from 'axios';
 import { connect } from 'react-redux';
 import '../css/app.css';
+import { devport } from '../ports'
 
 class Welcome extends Component{
     constructor() {
@@ -16,13 +17,13 @@ class Welcome extends Component{
        
     }
     callBackendApi  () {
-        axios.get('http://localhost:5000/users/')
+        axios.get(`${devport}users`)
         .then(data => {
             this.setState({data: data.data})
            })
     }
     render() {
-        const { data} = this.state;
+        // const { data} = this.state;
         const{user} = this.props.auth;
         // const  users = data.map((user, key) => <li key={key}>{user.name}</li>)
          return (
