@@ -6,12 +6,12 @@ export const PORT = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname,'/dist')))
 
-// if(process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production') {
     
-//     app.get('*', (req, res) => {
-//         res.sendfile(path.join(__dirname, 'dist', 'index.html'))
-//     })
-// }
+    app.get('*', (req, res) => {
+        res.sendfile(path.join(__dirname, 'dist', 'index.html'))
+    })
+}
 
 app.listen(PORT,()=> {
     console.log('process PORT =>',process.env.PORT)
