@@ -6,7 +6,7 @@ import { devport } from '../ports'
 
 export const registerUser = (user, history) => dispatch => {
   
-    axios.post(`${devport}/users/add`, user)
+    axios.post(`${devport}users/add`, user)
     .then(res => history.push('/login'))
     .catch(err => {
         console.log('Errors-------',err.response.data)
