@@ -18,7 +18,7 @@ app.listen(PORT,()=> {
     console.log(`Server is listening on port ${PORT}`);
 })
 
-//Dev start script "start": "webpack-dev-server --config webpack.dev.config.js --mode development --open",
+//Dev start script "startDev": "webpack-dev-server --config webpack.dev.config.js --mode development --open",
 //Deployment script "start": " node -r esm index.js"
 //When running, do " nodemon -r esm".
 //Add this to production script --profile --json > stats.json

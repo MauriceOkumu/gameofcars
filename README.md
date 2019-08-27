@@ -10,19 +10,11 @@ _From the root do_
 
 _From your local, make sure that mongodb is running_
 
-_open the terminal and _
+_open the terminal and_
 
-'''nodemon''' to start the developement server
+'''nodemon -r esm''' to start the developement server
 **Then do**
-'''yarn start'''
+'''yarn startDev''' to start the developement environment
 
 The app should be up and running.
 
-#Docker
-Inside the root, run 
-'docker build -t [name of container]'
-
-Then 'docker run -it -p 4200:4200 [name of container]'
- -t to name the container
- -it for interactive terminal
- -p to  give it a port to run on locally

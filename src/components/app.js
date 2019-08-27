@@ -33,7 +33,7 @@ class Welcome extends Component{
               {user.name && <h1>Welcome  {user.name} enjoy the game</h1>}
               <h1>All registered users</h1>
               <ul>
-                  { users }
+                  {/* { users } */}
               </ul>
             </div>
             
