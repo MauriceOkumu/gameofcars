@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname,'/dist')))
 if(process.env.NODE_ENV === 'production') {
     
     app.get('*', (req, res) => {
-        res.sendfile(path.join(__dirname, 'dist', 'index.html'))
+        res.sendfile(path.join(__dirname +'/dist/index.html'))
     })
 }
 

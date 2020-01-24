@@ -7,7 +7,7 @@
   "author": "mauriceokumu <maurice.okumu@thoughtworks.com>",
   "license": "MIT",
   "scripts": {
-    "start":"node -r esm index.js",
+    "start": "webpack-dev-server --config webpack.dev.config.js --mode development --open",
     "transpile": "babel src/index.js",
     "build": "webpack --config webpack.prod.config.js --mode production --profile --json > stats.json",
     "test": "jest",
@@ -36,6 +36,7 @@
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "css-loader": "^2.1.1",
+    "docsify-cli": "^4.4.0",
     "esm": "^3.2.25",
     "eventemitter3-timer": "^1.0.1",
     "express": "^4.17.1",

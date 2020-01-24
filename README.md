@@ -18,3 +18,6 @@ _open the terminal and_
 
 The app should be up and running.
 
+##Document the work##
+
+You can learn how to document your work [here](https://docsify.js.org/#/quickstart)
